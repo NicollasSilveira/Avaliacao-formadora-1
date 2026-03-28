@@ -13,7 +13,7 @@ export default function Main() {
   return (
     <View style={styles.container}>
       
-      <Text style={styles.titulo}>Cardápio ☕</Text>
+      <Text style={[styles.titulo,{paddingBottom: 20}]}>Cardápio</Text>
 
       {cafes.map((cafe, index) => (
         <View key={index} style={styles.item}>

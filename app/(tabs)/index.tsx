@@ -1,6 +1,8 @@
-import { Image, StyleSheet, Text, View } from 'react-native';
+import { useRouter } from 'expo-router';
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native';
 
 export default function Main() {
+  const router = useRouter();
   return (
     <View style={[styles.container,{paddingTop: 60}]}>
       <Text style={{fontSize: 24}}>Seja bem vindo ao Manhattan Cafe!</Text>
@@ -8,7 +10,15 @@ export default function Main() {
         <Image 
           source={{uri: 'https://i.pinimg.com/originals/8c/65/45/8c65456b5bba6e9800a79cb52ff921bd.gif'}}
           style={styles.logo}/>
-        <Text style={{fontSize: 16, marginTop: 15}}>Va em "Cardapio" para conferir nossos produtos</Text>
+        <Text style={{fontSize: 16, marginTop: 15, marginBottom: 20}}>Va em "Cardapio" para conferir nossos produtos</Text>
+
+    <Pressable
+      style={styles.botao}
+      onPress={() => router.push('/login')}>
+
+      <Text style={{color: '#ffffff', fontSize:16}}>Ir para Login</Text>
+    </Pressable>
+
     </View>
     </View>
   );
@@ -30,6 +40,12 @@ const styles = StyleSheet.create({
   Center: {
     flex: 1,
     alignItems: 'center',
+  },
+
+  botao: {
+    backgroundColor: "#000000",
+    padding: 20,
+    borderRadius: 12,
   },
 
 });
